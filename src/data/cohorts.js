@@ -1,0 +1,45 @@
+export const previousCohorts = [
+  {
+    id: "austin-may",
+    city: "Austin, TX",
+    status: "Complete",
+    dates: ["May 12-13, 2026", "June 2-3, 2026"],
+    href: "/cohorts/austin-may",
+    ctaLabel: "See how it was",
+  },
+];
+
+export const upcomingCohorts = [
+  {
+    id: "silicon-valley",
+    status: "Featured",
+    statusVariant: "featured",
+    city: "Silicon Valley, CA",
+    sublabel: "Cohort 01",
+    dates: ["September 17, 18, 19, 2026"],
+    ctaLabel: "Apply for this batch",
+    href: "#join",
+  },
+  {
+    id: "austin-october",
+    status: "Next Up",
+    city: "Austin, TX",
+    sublabel: "\u00a0",
+    dates: ["October 2-3, 2026", "November 6-7, 2026"],
+    ctaLabel: "Apply for Austin",
+    href: "#join",
+  },
+  {
+    id: "connecticut",
+    status: "Next Up",
+    city: "Connecticut",
+    sublabel: "\u00a0",
+    dates: ["October 9-10, 2026", "October 30-31, 2026"],
+    ctaLabel: "Apply for Connecticut",
+    href: "#join",
+  },
+];
+
+const cohorts = upcomingCohorts;
+
+export default cohorts;
