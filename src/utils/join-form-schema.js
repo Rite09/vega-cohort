@@ -14,6 +14,15 @@ export const joinFormSchema = z.object({
     .string()
     .trim()
     .min(2, "Please enter your title or role."),
+  email: z
+    .string()
+    .trim()
+    .email("Please enter a valid company email."),
+  phone: z
+    .string()
+    .trim()
+    .optional(),
+  companySize: z.string().min(1, "Please choose a company size."),
 });
 
 export const joinFormDefaultValues = {
@@ -21,4 +30,7 @@ export const joinFormDefaultValues = {
   batch: "",
   company: "",
   title: "",
+  email: "",
+  phone: "",
+  companySize: "",
 };

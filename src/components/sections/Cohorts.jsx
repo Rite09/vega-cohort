@@ -19,8 +19,8 @@ function CohortCard({ cohort }) {
         </h3>
         <p
           className={cn(
-            "mb-[22px] text-[15px] leading-[1.45] text-[#93a0b3]",
-            cohort.featured && "text-[#b6cff2]"
+            "mb-[22px] text-[15px] leading-[1.45] text-[#111111]",
+            cohort.featured && "text-white/84"
           )}
         >
           {cohort.sublabel}

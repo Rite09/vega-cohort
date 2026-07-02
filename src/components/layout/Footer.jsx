@@ -81,31 +81,31 @@ export default function Footer() {
                 className="h-auto w-full"
               />
             </div>
-            <p className="text-[14px] leading-[1.55] text-[#4b5563]">
+            <p className="text-[14px] leading-[1.55] text-[#111111]">
               From vision to scalable, profitable growth.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#ec407a]">
+            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#ec407a]">
               Company
             </h3>
-            <p className="max-w-[220px] text-[13.5px] leading-[1.6] text-[#374151]">
+            <p className="max-w-[220px] text-[13.5px] leading-[1.6] text-[#111111]">
               VRT Management Group, LLC • Empowering Growth Through Proven Systems
             </p>
 
             <div className="mt-[34px]">
-              <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#fb8c00]">
+              <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#fb8c00]">
                 Contact
               </h3>
               <div className="flex flex-col gap-[14px]">
-                <a href="tel:+12033041918" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#374151]">
+                <a href="tel:+12033041918" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
                   <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
                     <IconPhone />
                   </span>
                   <span>+1-203-304-1918</span>
                 </a>
-                <a href="mailto:coachrajesh@vrt9.com" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#374151]">
+                <a href="mailto:coachrajesh@vrt9.com" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
                   <span className="inline-flex size-5 items-center justify-center">
                     <IconMail />
                   </span>
@@ -116,30 +116,30 @@ export default function Footer() {
           </div>
 
           <div className="xl:pl-8">
-            <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#43a047]">
+            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#43a047]">
               Upcoming Cohorts
             </h3>
             <div className="flex flex-col gap-[10px]">
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#374151] transition-colors hover:text-red">
+              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
                 Silicon Valley, CA
               </a>
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#374151] transition-colors hover:text-red">
+              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
                 Austin, TX
               </a>
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#374151] transition-colors hover:text-red">
+              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
                 Connecticut
               </a>
             </div>
 
             <div className="mt-[34px]">
-              <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#e53935]">
+              <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#e53935]">
                 Get Started
               </h3>
               <div className="flex flex-col gap-[10px]">
-                <a href="#join" className="text-[13.5px] leading-[1.45] text-[#374151] transition-colors hover:text-red">
+                <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
                   Reserve My Seat
                 </a>
-                <a href="#founder" className="text-[13.5px] leading-[1.45] text-[#374151] transition-colors hover:text-red">
+                <a href="#founder" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
                   Book a Call
                 </a>
               </div>
@@ -147,12 +147,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#1e88e5]">
+            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#1e88e5]">
               Social Media
             </h3>
             <div className="flex flex-col gap-3">
               <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#374151]"
+                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
                 href="https://www.linkedin.com/company/vrt-management-group-llc/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -163,7 +163,7 @@ export default function Footer() {
                 <span>LinkedIn</span>
               </a>
               <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#374151]"
+                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
                 href="https://x.com/VRT_management"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -174,7 +174,7 @@ export default function Footer() {
                 <span>X</span>
               </a>
               <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#374151]"
+                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
                 href="https://www.facebook.com/vrtmgmt/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -185,7 +185,7 @@ export default function Footer() {
                 <span>Facebook</span>
               </a>
               <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#374151]"
+                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
                 href="https://www.instagram.com/vrt_management/"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -196,7 +196,7 @@ export default function Footer() {
                 <span>Instagram</span>
               </a>
               <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#374151]"
+                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
                 href="https://www.youtube.com/@vrt-management-group"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -210,16 +210,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold uppercase tracking-[0.04em] text-[#f9a825]">
+            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#f9a825]">
               Locations
             </h3>
             <div className="flex flex-col gap-7">
               <div>
                 <div className="mb-2 text-[14px] font-bold text-foreground">Botsford, CT</div>
-                <p className="text-[13.5px] leading-[1.55] text-[#374151]">1 Botsford Hill Road</p>
-                <p className="text-[13.5px] leading-[1.55] text-[#374151]">PO BOX 150</p>
-                <p className="text-[13.5px] leading-[1.55] text-[#374151]">Botsford, CT 06404</p>
-                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#374151]">
+                <p className="text-[13.5px] leading-[1.55] text-[#111111]">1 Botsford Hill Road</p>
+                <p className="text-[13.5px] leading-[1.55] text-[#111111]">PO BOX 150</p>
+                <p className="text-[13.5px] leading-[1.55] text-[#111111]">Botsford, CT 06404</p>
+                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
                   <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
                     <IconPhone />
                   </span>
@@ -229,8 +229,8 @@ export default function Footer() {
 
               <div>
                 <div className="mb-2 text-[14px] font-bold text-foreground">Hyderabad, India</div>
-                <p className="text-[13.5px] leading-[1.55] text-[#374151]">GCC (Global capability center)</p>
-                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#374151]">
+                <p className="text-[13.5px] leading-[1.55] text-[#111111]">GCC (Global capability center)</p>
+                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
                   <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
                     <IconPhone />
                   </span>
@@ -242,7 +242,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-[52px] border-t border-black/8 pt-[22px]">
-          <p className="text-[13px] leading-[1.6] text-[#6b7280]">
+          <p className="text-[13px] leading-[1.6] text-[#111111]">
             © 2026 VEGA®, Visionary Entrepreneurs Growth Accelerator. All rights reserved.
           </p>
         </div>

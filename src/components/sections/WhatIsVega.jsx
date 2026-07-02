@@ -73,7 +73,7 @@ export default function WhatIsVega() {
                         <h3 className="text-[21px] leading-[1.2] tracking-[-0.03em] text-[#152033]">
                           {item.title}
                         </h3>
-                        <p className="mt-3 text-[15px] leading-[1.7] text-[#4a5e79]">{item.description}</p>
+                        <p className="mt-3 text-[15px] leading-[1.7] text-[#111111]">{item.description}</p>
                       </div>
                     </div>
                   );
@@ -96,7 +96,7 @@ export default function WhatIsVega() {
                     <span className="flex size-8 items-center justify-center rounded-full bg-linear-to-br from-[#ff8c79] to-[#ff4d8b] text-white">
                       <Sparkles className="size-4" strokeWidth={1.9} />
                     </span>
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/78">How VEGA helps</span>
+                    <span className="font-mono text-[11px] tracking-[0.08em] text-white/82">How VEGA helps</span>
                   </div>
                   <h3 className="mt-5 max-w-[420px] text-[clamp(30px,3vw,42px)] font-semibold leading-[1.1] tracking-[-0.04em] text-white">
                     A founder-first accelerator designed for businesses entering a more complex stage of growth.

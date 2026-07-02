@@ -42,7 +42,7 @@ export default function Process() {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,25,0.05)_0%,rgba(11,15,25,0.24)_40%,rgba(11,15,25,0.92)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
                   <div className="rounded-[28px] border border-white/14 bg-white/10 p-6 backdrop-blur-md">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/58">
+                    <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">
                       Delivery format
                     </div>
                     <div className="mt-4 grid gap-3">
@@ -82,7 +82,7 @@ export default function Process() {
                   <div className="grid gap-3 md:grid-cols-[80px_1fr] md:items-start md:gap-4">
                     <div className="flex items-center gap-4 md:block">
                       <div className="font-mono text-[38px] font-semibold tracking-[-0.06em] text-red">{step.number}</div>
-                      <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#7a88a4] md:mt-2">
+                      <div className="font-mono text-[11px] tracking-[0.08em] text-[#111827] md:mt-2">
                         Step {step.number}
                       </div>
                     </div>
@@ -92,10 +92,10 @@ export default function Process() {
                         {step.title}
                       </h3>
                       {step.description ? (
-                        <p className="mt-3 max-w-[760px] text-[17px] leading-[1.8] text-[#455972]">{step.description}</p>
+                        <p className="mt-3 max-w-[760px] text-[17px] leading-[1.8] text-[#111111]">{step.description}</p>
                       ) : null}
                       {step.note ? (
-                        <p className="mt-4 inline-flex rounded-full border border-[#f0d8cf] bg-[#fff6f4] px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[#c8302f]">
+                        <p className="mt-4 inline-flex rounded-full border border-[#f0d8cf] bg-[#fff6f4] px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-[#c8302f]">
                           {step.note}
                         </p>
                       ) : null}

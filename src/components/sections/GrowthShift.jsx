@@ -31,7 +31,7 @@ export default function GrowthShift() {
               className="absolute right-0 top-0 h-36 w-36 rounded-full bg-linear-to-br from-[#e9f2ff] via-[#fff7fb] to-transparent opacity-90 blur-3xl"
             />
             <div className="mb-7 flex items-center justify-between gap-4">
-              <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-[#7583a0]">
+              <div className="font-mono text-[11px] tracking-[0.08em] text-[#111827]">
                 Internal strain
               </div>
               <span className="flex size-10 items-center justify-center rounded-2xl bg-linear-to-br from-[#ff7d7d] to-[#ff4f8a] text-white shadow-[0_16px_30px_rgba(255,79,138,0.22)]">
@@ -39,7 +39,7 @@ export default function GrowthShift() {
               </span>
             </div>
 
-            <p className="mb-6 w-full text-[18px] leading-[1.9] text-[#405574]">
+            <p className="mb-6 w-full text-[18px] leading-[1.9] text-[#111111]">
               Most founder-led businesses don&apos;t stall because the owner stopped working hard. They stall because
               your business is outgrowing the systems, communication patterns, leadership habits, and decision-making
               processes that got the business to its current point.
@@ -54,10 +54,10 @@ export default function GrowthShift() {
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[#ff8e84] to-[#ff5f78] text-white">
                     <Dot className="size-8" strokeWidth={3} />
                   </span>
-                  <span className="text-[17px] leading-[1.55] text-[#314863]">
+                  <span className="text-[17px] leading-[1.55] text-[#111111]">
                     {item}
                   </span>
-                  <span className="ml-auto font-mono text-[11px] text-[#9ba7bd]">0{index + 1}</span>
+                  <span className="ml-auto font-mono text-[11px] text-[#111827]">0{index + 1}</span>
                 </div>
               ))}
             </div>
@@ -72,7 +72,7 @@ export default function GrowthShift() {
                 aria-hidden="true"
                 className="absolute right-0 top-0 h-40 w-40 rounded-full bg-linear-to-br from-[#e3f4ff] via-[#f3f0ff] to-transparent opacity-90 blur-3xl"
               />
-              <div className="mb-8 font-mono text-[11px] uppercase tracking-[0.22em] text-[#7583a0]">
+              <div className="mb-8 font-mono text-[11px] tracking-[0.08em] text-[#111827]">
                 Complexity vs. Founder Capacity
               </div>
 
@@ -80,10 +80,10 @@ export default function GrowthShift() {
                 {complexityStages.map((stage, index) => (
                   <div key={stage.label} className="rounded-[22px] border border-[#edf2fa] bg-[#fbfdff] px-5 py-4 shadow-[0_12px_28px_rgba(26,34,56,0.04)]">
                     <div className="mb-3 flex items-center justify-between gap-4">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6a88c8]">
+                      <span className="text-[11px] font-semibold tracking-[0.08em] text-[#111827]">
                         Stage 0{index + 1}
                       </span>
-                      <span className="text-[14px] text-[#405574]">{stage.label}</span>
+                      <span className="text-[14px] text-[#111111]">{stage.label}</span>
                     </div>
                     <div className="h-3 rounded-full bg-[#e8eef7]">
                       <div
@@ -107,7 +107,7 @@ export default function GrowthShift() {
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.08)_0%,rgba(15,23,42,0.26)_36%,rgba(15,23,42,0.92)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
                   <div className="rounded-[28px] border border-white/14 bg-white/10 p-6 backdrop-blur-md">
-                    <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-white/58">
+                    <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">
                       Founder reality
                     </div>
                     <h3 className="mt-4 text-[clamp(28px,3vw,38px)] font-semibold leading-[1.1] tracking-[-0.035em] text-white">

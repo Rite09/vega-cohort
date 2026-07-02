@@ -43,7 +43,7 @@ export default function WalkAway() {
                   className="absolute right-0 top-0 h-32 w-32 rounded-full bg-linear-to-br from-[#e9f3ff] via-[#fff3f8] to-transparent opacity-90 blur-2xl"
                 />
                 <div className="relative flex items-center justify-between gap-4">
-                  <div className="font-mono text-[12px] font-semibold uppercase tracking-[0.14em] text-[#7c8aa6]">
+                  <div className="font-mono text-[12px] font-semibold tracking-[0.08em] text-[#111827]">
                     {item.number}
                   </div>
                   <span className={`flex size-12 items-center justify-center rounded-2xl bg-linear-to-br ${accent} text-white shadow-[0_16px_30px_rgba(40,56,93,0.16)]`}>
@@ -54,7 +54,7 @@ export default function WalkAway() {
                 <h3 className="relative mt-8 text-[clamp(24px,2vw,33px)] leading-[1.28] tracking-[-0.035em] text-[#182236]">
                   {item.title}
                 </h3>
-                <p className="relative mt-5 max-w-[340px] text-[16px] leading-[1.85] text-[#465a74]">
+                <p className="relative mt-5 max-w-[340px] text-[16px] leading-[1.85] text-[#111111]">
                   {item.description}
                 </p>
               </div>

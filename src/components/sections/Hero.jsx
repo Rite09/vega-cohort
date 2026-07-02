@@ -30,7 +30,7 @@ export default function Hero() {
           <Heading
             as="h1"
             size="h1"
-            className="mx-auto max-w-[1280px] text-[clamp(3.35rem,4.8vw,61px)] font-bold leading-[1.07] tracking-[-0.035em] text-[#333333]"
+            className="mx-auto max-w-[1280px] text-[clamp(3.35rem,4.8vw,61px)] font-bold leading-[1.07] tracking-[-0.035em] text-[#111111]"
           >
             <span className="block lg:whitespace-nowrap">Your business is growing.</span>
             <span className="mt-[0.12em] block bg-linear-to-r from-[#e03a42] via-[#c91f2a] to-[#8f1118] bg-clip-text pb-[0.08em] text-transparent">
@@ -38,9 +38,9 @@ export default function Hero() {
             </span>
           </Heading>
 
-          <p className="mx-auto mt-[34px] max-w-[900px] text-[clamp(1.1rem,2vw,1.6rem)] leading-[1.65] text-[#43506a]">
+          <p className="mx-auto mt-[34px] max-w-[900px] text-[clamp(1.1rem,2vw,1.6rem)] leading-[1.65] text-[#111111]">
             As businesses grow, the leadership habits and systems that once fueled success can become the very things
-            that limit future growth. <strong className="font-semibold text-[#2b313f]">VEGA</strong> helps founders
+            that limit future growth. <strong className="font-semibold text-[#111111]">VEGA</strong> helps founders
             identify what is slowing growth and build the structure, decision-making discipline, and execution rhythm
             needed to scale.
           </p>

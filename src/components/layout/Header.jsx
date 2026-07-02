@@ -186,7 +186,7 @@ export default function Header() {
                 exit={{ opacity: 0, y: -12, scale: 0.96 }}
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
               >
-                <p className="mb-3 text-[0.74rem] font-bold uppercase tracking-[0.18em] text-[#7e879d]">
+                <p className="mb-3 text-[0.74rem] font-bold tracking-[0.08em] text-[#111827]">
                   Navigate VEGA
                 </p>
                 <nav className="grid gap-2.5" aria-label="Homepage navigation">
