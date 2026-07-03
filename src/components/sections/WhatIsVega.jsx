@@ -46,7 +46,7 @@ export default function WhatIsVega() {
                 more clarity, alignment, and discipline.
               </p>
               <p className="mt-4 text-[19px] leading-8 text-muted">
-                Through assessments, executive coaching, workshops, and implementation support, {formatVegaText("VEGA helps leaders")}
+                Through assessments, executive coaching, workshops, and implementation support, {formatVegaText("VEGA helps leaders")}{" "}
                 identify what is slowing their growth, and build a practical roadmap for sustainable growth.
               </p>
             </div>
