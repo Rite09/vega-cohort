@@ -633,7 +633,7 @@ sup.vega-mark {
   display: flex;
   gap: 24px;
   width: max-content;
-  animation: testimonials-marquee 210s linear infinite;
+  animation: testimonials-marquee 300s linear infinite;
 }
 
 .testimonials-marquee__track--paused,

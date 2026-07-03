@@ -84,7 +84,7 @@ export function TestimonialsMarquee({ className = "" }) {
         if (marquee.scrollLeft >= halfway) {
           marquee.scrollLeft -= halfway;
         }
-      }, 56);
+      }, 78);
     };
 
     startAutoScroll();

@@ -14,8 +14,10 @@ const stats = [
     animate: true,
   },
   {
-    displayValue: "39+",
+    value: 39,
+    suffix: "+",
     label: "Years of Leadership & Growth Practice",
+    animate: true,
   },
 ];
 
