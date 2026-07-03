@@ -8,8 +8,7 @@
   margin-bottom: 18px;
   font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
 }
 
 .footerTitlePink {
@@ -170,4 +169,9 @@
   font-size: 13px;
   line-height: 1.6;
   color: #111111;
+}
+
+.copyright sup.vega-mark {
+  color: inherit;
+  -webkit-text-fill-color: currentColor;
 }

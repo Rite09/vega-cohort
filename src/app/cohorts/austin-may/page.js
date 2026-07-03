@@ -17,6 +17,7 @@ import VegaName from "@/components/ui/VegaName";
 import { previousCohorts } from "@/data/cohorts";
 import sectionVisuals from "@/data/sectionVisuals";
 import testimonials from "@/data/testimonials";
+import { formatSectionLabel } from "@/utils/format-section-label";
 import { formatVegaText } from "@/utils/format-vega-text";
 import styles from "@/app/cohorts/austin-may/page.module.css";
 
@@ -154,7 +155,7 @@ export default function AustinMayCohortPage() {
           <div className={styles.highlightsGrid}>
             <div className={styles.highlightsIntro}>
               <div className={styles.sectionHeader}>
-                <div className="section-eyebrow mb-5">what happened</div>
+                <div className="section-eyebrow mb-5">{formatSectionLabel("what happened")}</div>
                 <Heading className="!bg-none text-[clamp(32px,3.6vw,44px)] tracking-[-0.03em] text-[#0f172a] [-webkit-text-fill-color:#0f172a]">
                   See how the Austin cohort was structured
                 </Heading>
@@ -190,7 +191,7 @@ export default function AustinMayCohortPage() {
 
         <section className={styles.reviewsBand}>
           <div className="mx-auto max-w-[760px] text-center">
-            <div className="section-eyebrow mx-auto mb-5">participant reviews</div>
+            <div className="section-eyebrow mx-auto mb-5">{formatSectionLabel("participant reviews")}</div>
             <Heading className="!bg-none text-[clamp(32px,3.6vw,44px)] tracking-[-0.03em] text-[#0f172a] [-webkit-text-fill-color:#0f172a]">
               What previous participants said
             </Heading>
@@ -212,7 +213,7 @@ export default function AustinMayCohortPage() {
         <section className={styles.ctaBand}>
           <div className={styles.ctaInner}>
             <div>
-              <div className="section-eyebrow mb-5">next step</div>
+              <div className="section-eyebrow mb-5">{formatSectionLabel("next step")}</div>
               <Heading className="section-title-gradient text-[clamp(30px,3.6vw,44px)]">
                 Want to join the next <VegaName /> cohort?
               </Heading>

@@ -70,31 +70,31 @@ function IconX() {
 
 const socialLinks = [
   {
-    label: "linkedIn",
+    label: "LinkedIn",
     href: "https://www.linkedin.com/company/vrt-management-group-llc/",
     icon: IconLinkedIn,
     iconClass: styles.socialIconLinkedin,
   },
   {
-    label: "x",
+    label: "X",
     href: "https://x.com/VRT_management",
     icon: IconX,
     iconClass: styles.socialIconX,
   },
   {
-    label: "facebook",
+    label: "Facebook",
     href: "https://www.facebook.com/vrtmgmt/",
     icon: IconFacebook,
     iconClass: styles.socialIconFacebook,
   },
   {
-    label: "instagram",
+    label: "Instagram",
     href: "https://www.instagram.com/vrt_management/",
     icon: IconInstagram,
     iconClass: styles.socialIconInstagram,
   },
   {
-    label: "youtube",
+    label: "Youtube",
     href: "https://www.youtube.com/@vrt-management-group",
     icon: IconYoutube,
     iconClass: styles.socialIconYoutube,
@@ -116,13 +116,13 @@ export default function Footer() {
                 className="h-auto w-full"
               />
             </div>
-            <p className={styles.footerText}>from vision to scalable, profitable growth.</p>
+            <p className={styles.footerText}>From vision to scalable, profitable growth.</p>
           </div>
 
           <div>
             <h3 className={`${styles.footerTitle} ${styles.footerTitlePink}`}>Company</h3>
             <p className={`${styles.footerText} max-w-[220px]`}>
-              vrt management group, llc • empowering growth through proven systems
+              VRT Management Group, LLC • Empowering growth through proven systems
             </p>
 
             <div className={styles.sectionBlock}>
@@ -148,13 +148,13 @@ export default function Footer() {
             <h3 className={`${styles.footerTitle} ${styles.footerTitleGreen}`}>Upcoming Cohorts</h3>
             <div className={styles.linkStack}>
               <a href="#join" className={styles.footerLink}>
-                silicon valley, ca
+                Silicon Valley, CA
               </a>
               <a href="#join" className={styles.footerLink}>
-                austin, tx
+                Austin, TX
               </a>
               <a href="#join" className={styles.footerLink}>
-                connecticut
+                Connecticut
               </a>
             </div>
 
@@ -162,10 +162,10 @@ export default function Footer() {
               <h3 className={`${styles.footerTitle} ${styles.footerTitleRed}`}>Get Started</h3>
               <div className={styles.linkStack}>
                 <a href="#join" className={styles.footerLink}>
-                  reserveMySeat
+                  Reserve My Seat
                 </a>
                 <a href="#founder" className={styles.footerLink}>
-                  bookACall
+                  Book a Call
                 </a>
               </div>
             </div>
@@ -195,10 +195,10 @@ export default function Footer() {
             <h3 className={`${styles.footerTitle} ${styles.footerTitleGold}`}>Locations</h3>
             <div className={styles.locationStack}>
               <div>
-                <div className={styles.footerSubheading}>botsford, ct</div>
-                <p className={styles.footerText}>1 botsford hill road</p>
-                <p className={styles.footerText}>po box 150</p>
-                <p className={styles.footerText}>botsford, ct 06404</p>
+                <div className={styles.footerSubheading}>Botsford, CT</div>
+                <p className={styles.footerText}>1 Botsford Hill Road</p>
+                <p className={styles.footerText}>PO Box 150</p>
+                <p className={styles.footerText}>Botsford, CT 06404</p>
                 <a href="tel:+12033041918" className={`${styles.footerLink} ${styles.contactRow} mt-[10px]`}>
                   <span className={styles.contactIcon}>
                     <IconPhone />
@@ -208,8 +208,8 @@ export default function Footer() {
               </div>
 
               <div>
-                <div className={styles.footerSubheading}>hyderabad, india</div>
-                <p className={styles.footerText}>gcc (global capability center)</p>
+                <div className={styles.footerSubheading}>Hyderabad, India</div>
+                <p className={styles.footerText}>GCC (Global Capability Center)</p>
                 <a href="tel:+12033041918" className={`${styles.footerLink} ${styles.contactRow} mt-[10px]`}>
                   <span className={styles.contactIcon}>
                     <IconPhone />
@@ -222,7 +222,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.copyright}>
-          © 2026 <VegaName />, visionary entrepreneurs growth accelerator. all rights reserved.
+          © 2026 <VegaName />, Visionary Entrepreneurs Growth Accelerator. All rights reserved.
         </div>
       </Container>
     </footer>

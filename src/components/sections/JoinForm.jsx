@@ -20,6 +20,7 @@ import Heading from "@/components/ui/Heading";
 import Input from "@/components/ui/Input";
 import Select from "@/components/ui/Select";
 import VegaName from "@/components/ui/VegaName";
+import { formatSectionLabel } from "@/utils/format-section-label";
 import cohorts from "@/data/cohorts";
 import { packageIncludes } from "@/constants/site";
 import { joinFormDefaultValues, joinFormSchema } from "@/utils/join-form-schema";
@@ -89,7 +90,7 @@ export default function JoinForm() {
         <FadeUp>
           <div className="join-form-layout">
             <div className="join-form-copy">
-              <span className="join-form-copy__badge">reserve your spot</span>
+              <span className="join-form-copy__badge">{formatSectionLabel("reserveYourSpot")}</span>
 
               <Heading
                 as="h2"
@@ -105,7 +106,7 @@ export default function JoinForm() {
               </p>
 
               <div className="join-form-package mt-10">
-                <p className="join-form-package__label">your package includes</p>
+                <p className="join-form-package__label">{formatSectionLabel("your package includes")}</p>
                 <h3 className="join-form-package__headline">
                   A guided path from diagnosis to execution.
                 </h3>

@@ -6,6 +6,7 @@ import FadeUp from "@/components/animations/FadeUp";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import VegaName from "@/components/ui/VegaName";
+import { formatSectionLabel } from "@/utils/format-section-label";
 import { previousCohorts } from "@/data/cohorts";
 
 function CohortDateList({ dates, className = "" }) {
@@ -46,7 +47,7 @@ function PastCohortSpotlight({ cohort }) {
     <div className="cohorts-past-spotlight">
       <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[rgba(196,30,36,0.22)] bg-white/90 px-4 py-2 text-[13px] font-bold tracking-[0.06em] text-[#c41e24]">
         <MapPin className="size-3.5 text-[#c41e24]" />
-        completed cohort
+        {formatSectionLabel("completedCohort")}
       </div>
 
       <h3 className="mt-5 max-w-[460px] text-[clamp(26px,2.8vw,36px)] font-semibold leading-[1.14] tracking-[-0.03em] text-[#0f172a]">

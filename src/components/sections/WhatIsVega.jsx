@@ -5,6 +5,7 @@ import Section from "@/components/layout/Section";
 import Heading from "@/components/ui/Heading";
 import VegaName from "@/components/ui/VegaName";
 import sectionVisuals from "@/data/sectionVisuals";
+import { formatSectionLabel } from "@/utils/format-section-label";
 import { formatVegaText } from "@/utils/format-vega-text";
 
 const highlightCards = [
@@ -37,7 +38,7 @@ export default function WhatIsVega() {
       <FadeUp>
         <div className="grid gap-10">
           <div className="mx-auto flex max-w-[1100px] flex-col items-center text-center">
-            <div className="section-eyebrow section-eyebrow--large mb-[18px]">definition</div>
+            <div className="section-eyebrow section-eyebrow--large mb-[18px]">{formatSectionLabel("definition")}</div>
             <Heading className="section-title-gradient mb-6">What is <VegaName />?</Heading>
             <div className="w-full max-w-[1160px]">
               <p className="text-[19px] leading-8 text-muted">
