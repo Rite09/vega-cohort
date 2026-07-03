@@ -1,5 +1,7 @@
 import Heading from "@/components/ui/Heading";
 import { cn } from "@/utils/cn";
+import { formatSectionLabel } from "@/utils/format-section-label";
+import { formatVegaText } from "@/utils/format-vega-text";
 
 export default function SectionHeading({
   centered = false,
@@ -11,10 +13,10 @@ export default function SectionHeading({
   titleClassName,
 }) {
   return (
-    <div className={cn("mb-14", centered && "mx-auto text-center", className)}>
+    <div className={cn("mb-10", centered && "mx-auto text-center", className)}>
       {label ? (
         <div className={cn("section-eyebrow section-eyebrow--large mb-[18px]", centered && "mx-auto")}>
-          {label}
+          {formatSectionLabel(label)}
         </div>
       ) : null}
 
@@ -26,7 +28,7 @@ export default function SectionHeading({
           titleClassName
         )}
       >
-        {title}
+        {formatVegaText(title)}
       </Heading>
 
       {description ? (
@@ -37,7 +39,7 @@ export default function SectionHeading({
             descriptionClassName
           )}
         >
-          {description}
+          {formatVegaText(description)}
         </p>
       ) : null}
     </div>

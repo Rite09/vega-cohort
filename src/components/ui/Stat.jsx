@@ -13,7 +13,7 @@ export default function Stat({
 }) {
   return (
     <div className={cn("rounded-[28px] bg-white px-[30px] py-10 shadow-[0_18px_48px_rgba(26,34,56,0.08)]", className)}>
-      <div className="font-serif text-[clamp(36px,4vw,52px)] leading-none text-red">
+      <div className="font-sans text-[clamp(36px,4vw,52px)] leading-none text-red">
         {animate ? (
           <Counter duration={1.4} prefix={prefix} suffix={suffix} value={value} />
         ) : (

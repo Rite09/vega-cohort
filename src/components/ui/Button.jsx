@@ -32,7 +32,7 @@ export default function Button({
       )}
       {...props}
     >
-      <span>{children}</span>
+      <span className="button-label">{children}</span>
       {showArrow ? <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-1" /> : null}
     </Component>
   );

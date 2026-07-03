@@ -4,6 +4,7 @@ import Section from "@/components/layout/Section";
 import Grid from "@/components/ui/Grid";
 import SectionHeading from "@/components/ui/SectionHeading";
 import walkAway from "@/data/walkAway";
+import { cn } from "@/utils/cn";
 
 const icons = [Compass, Brain, MessageSquareText, Gauge, Route];
 const accents = [
@@ -20,7 +21,7 @@ export default function WalkAway() {
       <FadeUp>
         <SectionHeading
           centered
-          label="Outcomes"
+          label="outcomes"
           title="What You'll Walk Away With"
           description="Every cohort is designed to leave leaders with sharper judgment, stronger systems, and a clearer path to their next stage."
           descriptionClassName="max-w-[1080px]"
@@ -28,7 +29,7 @@ export default function WalkAway() {
       </FadeUp>
 
       <FadeUp delay={0.08}>
-        <Grid className="gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <Grid className="gap-5 md:grid-cols-2 xl:grid-cols-6">
           {walkAway.map((item, index) => {
             const Icon = icons[index % icons.length];
             const accent = accents[index % accents.length];
@@ -36,7 +37,12 @@ export default function WalkAway() {
             return (
               <div
                 key={item.number}
-                className="group soft-panel relative flex min-h-[260px] flex-col overflow-hidden rounded-[30px] border border-[#e7edf8] bg-white px-8 py-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#dce6f6] hover:shadow-[0_26px_58px_rgba(26,34,56,0.12)]"
+                className={cn(
+                  "group soft-panel relative flex min-h-[260px] flex-col overflow-hidden rounded-[30px] border border-[#e7edf8] bg-white px-8 py-8 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#dce6f6] hover:shadow-[0_26px_58px_rgba(26,34,56,0.12)]",
+                  "xl:col-span-2",
+                  index === 3 && "xl:col-start-2",
+                  index === 4 && "md:col-span-2"
+                )}
               >
                 <div
                   aria-hidden="true"

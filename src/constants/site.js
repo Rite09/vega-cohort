@@ -19,14 +19,6 @@ export const growthShiftPoints = [
   "The founder becomes the bottleneck.",
 ];
 
-export const complexityStages = [
-  { label: "Early stage", widthClassName: "w-[18%]" },
-  { label: "Building momentum", widthClassName: "w-[38%]" },
-  { label: "Scaling pressure", widthClassName: "w-[60%]" },
-  { label: "Founder bottleneck", widthClassName: "w-[82%]" },
-  { label: "Structural limit", widthClassName: "w-full" },
-];
-
 export const vegaPillars = [
   { title: "Assessments", tag: "Diagnose" },
   { title: "Executive Coaching", tag: "Advise" },

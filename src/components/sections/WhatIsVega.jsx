@@ -3,7 +3,9 @@ import { Compass, Layers3, Route, Sparkles } from "lucide-react";
 import FadeUp from "@/components/animations/FadeUp";
 import Section from "@/components/layout/Section";
 import Heading from "@/components/ui/Heading";
+import VegaName from "@/components/ui/VegaName";
 import sectionVisuals from "@/data/sectionVisuals";
+import { formatVegaText } from "@/utils/format-vega-text";
 
 const highlightCards = [
   {
@@ -35,16 +37,16 @@ export default function WhatIsVega() {
       <FadeUp>
         <div className="grid gap-10">
           <div className="mx-auto flex max-w-[1100px] flex-col items-center text-center">
-            <div className="section-eyebrow section-eyebrow--large mb-[18px]">Definition</div>
-            <Heading className="section-title-gradient mb-6">What is VEGA?</Heading>
+            <div className="section-eyebrow section-eyebrow--large mb-[18px]">definition</div>
+            <Heading className="section-title-gradient mb-6">What is <VegaName />?</Heading>
             <div className="w-full max-w-[1160px]">
               <p className="text-[19px] leading-8 text-muted">
-                <strong className="font-semibold text-foreground">VEGA is a structured business growth accelerator</strong>{" "}
+                <strong className="font-semibold text-foreground"><VegaName /> is a structured business growth accelerator</strong>{" "}
                 designed for founders, entrepreneurs, and executive leaders who want to build businesses that scale with
                 more clarity, alignment, and discipline.
               </p>
               <p className="mt-4 text-[19px] leading-8 text-muted">
-                Through assessments, executive coaching, workshops, and implementation support, VEGA helps leaders
+                Through assessments, executive coaching, workshops, and implementation support, {formatVegaText("VEGA helps leaders")}
                 identify what is slowing their growth, and build a practical roadmap for sustainable growth.
               </p>
             </div>
@@ -96,7 +98,7 @@ export default function WhatIsVega() {
                     <span className="flex size-8 items-center justify-center rounded-full bg-linear-to-br from-[#ff8c79] to-[#ff4d8b] text-white">
                       <Sparkles className="size-4" strokeWidth={1.9} />
                     </span>
-                    <span className="font-mono text-[11px] tracking-[0.08em] text-white/82">How VEGA helps</span>
+                    <span className="font-mono text-[11px] tracking-[0.08em] text-white/82">How {formatVegaText("VEGA helps")}</span>
                   </div>
                   <h3 className="mt-5 max-w-[420px] text-[clamp(30px,3vw,42px)] font-semibold leading-[1.1] tracking-[-0.04em] text-white">
                     A founder-first accelerator designed for businesses entering a more complex stage of growth.

@@ -2,16 +2,134 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styles from "@/components/layout/Header.module.css";
+import VegaName from "@/components/ui/VegaName";
 import { cn } from "@/utils/cn";
 
 const MENU_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Partnerships", href: "/#what-is-vega" },
-  { label: "Register", href: "/#join" },
+  { label: "home", href: "/", sectionId: "top" },
+  { label: "partnerships", href: "/#what-is-vega", sectionId: "what-is-vega" },
+  { label: "register", href: "/#join", sectionId: "join" },
 ];
+
+const NAV_OFFSET = 120;
+
+function getActiveSectionFromScroll() {
+  const join = document.getElementById("join");
+  if (join && join.getBoundingClientRect().top <= NAV_OFFSET) {
+    return "join";
+  }
+
+  const partnerships = document.getElementById("what-is-vega");
+  if (partnerships && partnerships.getBoundingClientRect().top <= NAV_OFFSET) {
+    return "what-is-vega";
+  }
+
+  return "top";
+}
+
+function useActiveNavSection() {
+  const pathname = usePathname();
+  const router = useRouter();
+  const pendingSectionRef = useRef(null);
+  const [activeSection, setActiveSection] = useState("top");
+
+  const navigateToSection = useCallback(
+    (sectionId) => {
+      setActiveSection(sectionId);
+      pendingSectionRef.current = sectionId;
+
+      if (pathname !== "/") {
+        router.push(sectionId === "top" ? "/" : `/#${sectionId}`);
+        return;
+      }
+
+      if (sectionId === "top") {
+        window.history.replaceState(null, "", "/");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+
+      const element = document.getElementById(sectionId);
+      if (!element) return;
+
+      window.history.replaceState(null, "", `/#${sectionId}`);
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    },
+    [pathname, router]
+  );
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      pendingSectionRef.current = null;
+      return undefined;
+    }
+
+    const hash = window.location.hash.replace("#", "");
+    const hashSection = MENU_ITEMS.find((item) => item.sectionId === hash)?.sectionId;
+
+    if (hashSection) {
+      setActiveSection(hashSection);
+      pendingSectionRef.current = hashSection;
+      requestAnimationFrame(() => {
+        if (hashSection === "top") {
+          window.scrollTo({ top: 0, behavior: "auto" });
+          return;
+        }
+        document.getElementById(hashSection)?.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    } else {
+      setActiveSection(getActiveSectionFromScroll());
+    }
+
+    let frameId = 0;
+
+    const syncActiveSection = () => {
+      const pending = pendingSectionRef.current;
+      if (pending) {
+        if (pending === "top") {
+          if (window.scrollY <= 80) {
+            pendingSectionRef.current = null;
+          } else {
+            return;
+          }
+        } else {
+          const pendingElement = document.getElementById(pending);
+          if (pendingElement && pendingElement.getBoundingClientRect().top <= NAV_OFFSET + 24) {
+            pendingSectionRef.current = null;
+          } else {
+            return;
+          }
+        }
+      }
+
+      const nextSection = getActiveSectionFromScroll();
+      setActiveSection((current) => (current === nextSection ? current : nextSection));
+    };
+
+    const tick = () => {
+      syncActiveSection();
+      frameId = window.requestAnimationFrame(tick);
+    };
+
+    frameId = window.requestAnimationFrame(tick);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+    };
+  }, [pathname]);
+
+  return {
+    activeSection: pathname === "/" ? activeSection : null,
+    navigateToSection,
+  };
+}
+
+const activeNavClassName =
+  "rounded-[18px] border border-[rgba(204,32,40,0.18)] bg-[rgba(255,250,250,0.94)] text-[#b51d22] shadow-none hover:bg-[rgba(255,250,250,0.94)] hover:text-[#b51d22] hover:shadow-none";
 
 const DESKTOP_ITEMS = MENU_ITEMS;
 
@@ -30,14 +148,52 @@ function BrandMark() {
   );
 }
 
-function DesktopNavItem({ href, isActive, label }) {
+function DesktopNavItem({ href, isActive, label, onSelect }) {
   return (
     <Link
       href={href}
+      onClick={(event) => {
+        event.preventDefault();
+        onSelect();
+      }}
       aria-current={isActive ? "page" : undefined}
       className={cn(
         "relative isolate inline-flex min-h-[38px] items-center justify-center overflow-hidden rounded-full px-[18px] py-[10px] text-[15px] font-semibold text-[#2b3343] transition-[color,background-color,box-shadow,border-color] duration-200 hover:bg-[rgba(43,51,67,0.05)] hover:text-[#111827] hover:shadow-[inset_0_0_0_1px_rgba(43,51,67,0.04)]",
-        isActive && "rounded-[18px] border border-[rgba(204,32,40,0.18)] bg-[rgba(255,250,250,0.94)] text-[#b51d22] shadow-none hover:bg-[rgba(255,250,250,0.94)] hover:text-[#b51d22] hover:shadow-none"
+        isActive && activeNavClassName
+      )}
+    >
+      {isActive ? (
+        <>
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 -z-20 rounded-[inherit] bg-[radial-gradient(circle_at_50%_0%,rgba(204,32,40,0.16)_0%,rgba(204,32,40,0)_68%),linear-gradient(135deg,rgba(204,32,40,0.08),rgba(255,145,42,0.1))]"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute inset-[1px] -z-10 rounded-[inherit] bg-[linear-gradient(180deg,rgba(255,255,255,0.96)_0%,rgba(255,244,244,0.92)_100%)]"
+          />
+        </>
+      ) : null}
+      <span className="relative z-10">{label}</span>
+    </Link>
+  );
+}
+
+function MobileNavItem({ href, isActive, label, onSelect, onNavigate }) {
+  return (
+    <Link
+      href={href}
+      onClick={(event) => {
+        event.preventDefault();
+        onSelect();
+        onNavigate();
+      }}
+      aria-current={isActive ? "page" : undefined}
+      className={cn(
+        "relative isolate flex min-h-[52px] items-center overflow-hidden rounded-[18px] px-[18px] text-base font-semibold transition-[transform,background-color,color] duration-200",
+        isActive
+          ? activeNavClassName
+          : "bg-[#f7f9ff] text-[#242a38] hover:translate-x-1 hover:bg-[linear-gradient(90deg,#edf6ff_0%,#f7f0ff_100%)] hover:text-[#4a3cf4]"
       )}
     >
       {isActive ? (
@@ -58,6 +214,7 @@ function DesktopNavItem({ href, isActive, label }) {
 }
 
 export default function Header() {
+  const { activeSection, navigateToSection } = useActiveNavSection();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navRef = useRef(null);
@@ -141,7 +298,8 @@ export default function Header() {
               key={item.href}
               href={item.href}
               label={item.label}
-              isActive={item.label === "Home"}
+              isActive={activeSection === item.sectionId}
+              onSelect={() => navigateToSection(item.sectionId)}
             />
           ))}
         </nav>
@@ -187,18 +345,18 @@ export default function Header() {
                 transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
               >
                 <p className="mb-3 text-[0.74rem] font-bold tracking-[0.08em] text-[#111827]">
-                  Navigate VEGA
+                  Navigate <VegaName />
                 </p>
                 <nav className="grid gap-2.5" aria-label="Homepage navigation">
                   {MENU_ITEMS.map((item) => (
-                    <Link
+                    <MobileNavItem
                       key={item.href}
                       href={item.href}
-                      className="flex min-h-[52px] items-center rounded-[18px] bg-[#f7f9ff] px-[18px] text-base font-semibold text-[#242a38] transition-[transform,background-color,color] duration-200 hover:translate-x-1 hover:bg-[linear-gradient(90deg,#edf6ff_0%,#f7f0ff_100%)] hover:text-[#4a3cf4]"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                      label={item.label}
+                      isActive={activeSection === item.sectionId}
+                      onSelect={() => navigateToSection(item.sectionId)}
+                      onNavigate={() => setIsMenuOpen(false)}
+                    />
                   ))}
                 </nav>
               </motion.div>

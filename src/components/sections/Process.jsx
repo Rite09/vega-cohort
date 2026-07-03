@@ -4,6 +4,7 @@ import Section from "@/components/layout/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
 import sectionVisuals from "@/data/sectionVisuals";
 import processSteps from "@/data/process";
+import { formatVegaText } from "@/utils/format-vega-text";
 
 const accents = [
   "from-[#2cc8d8] to-[#2982ff]",
@@ -20,7 +21,7 @@ export default function Process() {
       <FadeUp>
         <SectionHeading
           centered
-          label="The path"
+          label="thePath"
           title="How the VEGA Cohort Works"
           description="A structured sequence of assessment, coaching, workshops, and implementation support designed to help leaders move from diagnosis to execution."
           descriptionClassName="max-w-[1080px]"
@@ -39,20 +40,20 @@ export default function Process() {
                   sizes="(max-width: 1024px) 100vw, 440px"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,25,0.05)_0%,rgba(11,15,25,0.24)_40%,rgba(11,15,25,0.92)_100%)]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,15,25,0.1)_0%,rgba(11,15,25,0.62)_52%,rgba(11,15,25,0.97)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
-                  <div className="rounded-[28px] border border-white/14 bg-white/10 p-6 backdrop-blur-md">
-                    <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">
+                  <div className="rounded-[28px] border border-white/16 bg-[rgba(8,12,22,0.72)] p-6 shadow-[0_24px_60px_rgba(0,0,0,0.38)] backdrop-blur-xl">
+                    <div className="font-mono text-[11px] tracking-[0.08em] text-white/88">
                       Delivery format
                     </div>
                     <div className="mt-4 grid gap-3">
-                      <div className="rounded-[18px] border border-white/12 bg-white/8 px-4 py-3 text-[14px] text-white/84">
+                      <div className="rounded-[18px] border border-white/14 bg-[rgba(0,0,0,0.34)] px-4 py-3.5 text-[14px] leading-[1.55] text-white/92 backdrop-blur-sm">
                         Assessments and leadership diagnostics
                       </div>
-                      <div className="rounded-[18px] border border-white/12 bg-white/8 px-4 py-3 text-[14px] text-white/84">
+                      <div className="rounded-[18px] border border-white/14 bg-[rgba(0,0,0,0.34)] px-4 py-3.5 text-[14px] leading-[1.55] text-white/92 backdrop-blur-sm">
                         Strategy debriefs and in-person workshops
                       </div>
-                      <div className="rounded-[18px] border border-white/12 bg-white/8 px-4 py-3 text-[14px] text-white/84">
+                      <div className="rounded-[18px] border border-white/14 bg-[rgba(0,0,0,0.34)] px-4 py-3.5 text-[14px] leading-[1.55] text-white/92 backdrop-blur-sm">
                         Implementation tools and roadmap support
                       </div>
                     </div>
@@ -79,20 +80,22 @@ export default function Process() {
                     aria-hidden="true"
                     className="absolute right-0 top-0 h-32 w-32 rounded-full bg-linear-to-br from-[#ecf4ff] via-[#fef7fb] to-transparent opacity-90 blur-3xl"
                   />
-                  <div className="grid gap-3 md:grid-cols-[80px_1fr] md:items-start md:gap-4">
-                    <div className="flex items-center gap-4 md:block">
-                      <div className="font-mono text-[38px] font-semibold tracking-[-0.06em] text-red">{step.number}</div>
-                      <div className="font-mono text-[11px] tracking-[0.08em] text-[#111827] md:mt-2">
-                        Step {step.number}
+                  <div className="flex items-center gap-4 md:grid md:grid-cols-[80px_1fr] md:items-center md:gap-4">
+                    <div className="flex shrink-0 flex-col items-center">
+                      <div className="font-mono text-[11px] tracking-[0.08em] text-[#111827]">Step</div>
+                      <div className="font-mono text-[38px] font-semibold leading-none tracking-[-0.06em] text-red">
+                        {step.number}
                       </div>
                     </div>
 
                     <div>
                       <h3 className="text-[clamp(22px,2.1vw,31px)] leading-[1.2] tracking-[-0.035em] text-[#182236]">
-                        {step.title}
+                        {formatVegaText(step.title)}
                       </h3>
                       {step.description ? (
-                        <p className="mt-3 max-w-[760px] text-[17px] leading-[1.8] text-[#111111]">{step.description}</p>
+                        <p className="mt-3 max-w-[760px] text-[17px] leading-[1.8] text-[#111111]">
+                          {formatVegaText(step.description)}
+                        </p>
                       ) : null}
                       {step.note ? (
                         <p className="mt-4 inline-flex rounded-full border border-[#f0d8cf] bg-[#fff6f4] px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-[#c8302f]">

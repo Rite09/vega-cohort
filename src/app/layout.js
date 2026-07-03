@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, JetBrains_Mono, Manrope } from "next/font/google";
+import { JetBrains_Mono, Manrope } from "next/font/google";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
 import Grain from "@/components/shared/Grain";
@@ -10,12 +10,6 @@ const manrope = Manrope({
   variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
-});
-
-const display = Cormorant_Garamond({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
 });
 
 const jetBrainsMono = JetBrains_Mono({
@@ -34,7 +28,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${manrope.variable} ${display.variable} ${jetBrainsMono.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${jetBrainsMono.variable} overflow-x-clip`}>
       <body className="min-h-screen overflow-x-hidden bg-background font-sans text-foreground antialiased">
         <SmoothScroll>
           <Grain />

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Container from "@/components/layout/Container";
+import VegaName from "@/components/ui/VegaName";
+import styles from "@/components/layout/Footer.module.css";
 
 function IconPhone() {
   return (
@@ -66,13 +68,46 @@ function IconX() {
   );
 }
 
+const socialLinks = [
+  {
+    label: "linkedIn",
+    href: "https://www.linkedin.com/company/vrt-management-group-llc/",
+    icon: IconLinkedIn,
+    iconClass: styles.socialIconLinkedin,
+  },
+  {
+    label: "x",
+    href: "https://x.com/VRT_management",
+    icon: IconX,
+    iconClass: styles.socialIconX,
+  },
+  {
+    label: "facebook",
+    href: "https://www.facebook.com/vrtmgmt/",
+    icon: IconFacebook,
+    iconClass: styles.socialIconFacebook,
+  },
+  {
+    label: "instagram",
+    href: "https://www.instagram.com/vrt_management/",
+    icon: IconInstagram,
+    iconClass: styles.socialIconInstagram,
+  },
+  {
+    label: "youtube",
+    href: "https://www.youtube.com/@vrt-management-group",
+    icon: IconYoutube,
+    iconClass: styles.socialIconYoutube,
+  },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-white pb-7 pt-[60px] text-foreground">
+    <footer className={`${styles.footer} bg-white pb-7 pt-[60px] text-foreground`}>
       <Container className="max-w-[1640px] px-10 md:px-12 xl:px-[88px]">
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-[1.05fr_1fr_1fr_0.95fr_1.05fr]">
           <div>
-            <div className="mb-[18px] w-[210px] max-w-full">
+            <div className={styles.footerLogo}>
               <Image
                 src="/vrt_logo.png"
                 alt="VRT Management Group logo"
@@ -81,32 +116,26 @@ export default function Footer() {
                 className="h-auto w-full"
               />
             </div>
-            <p className="text-[14px] leading-[1.55] text-[#111111]">
-              From vision to scalable, profitable growth.
-            </p>
+            <p className={styles.footerText}>from vision to scalable, profitable growth.</p>
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#ec407a]">
-              Company
-            </h3>
-            <p className="max-w-[220px] text-[13.5px] leading-[1.6] text-[#111111]">
-              VRT Management Group, LLC • Empowering Growth Through Proven Systems
+            <h3 className={`${styles.footerTitle} ${styles.footerTitlePink}`}>Company</h3>
+            <p className={`${styles.footerText} max-w-[220px]`}>
+              vrt management group, llc • empowering growth through proven systems
             </p>
 
-            <div className="mt-[34px]">
-              <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#fb8c00]">
-                Contact
-              </h3>
-              <div className="flex flex-col gap-[14px]">
-                <a href="tel:+12033041918" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
-                  <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
+            <div className={styles.sectionBlock}>
+              <h3 className={`${styles.footerTitle} ${styles.footerTitleOrange}`}>Contact</h3>
+              <div className={styles.linkStackWide}>
+                <a href="tel:+12033041918" className={`${styles.footerLink} ${styles.contactRow}`}>
+                  <span className={styles.contactIcon}>
                     <IconPhone />
                   </span>
                   <span>+1-203-304-1918</span>
                 </a>
-                <a href="mailto:coachrajesh@vrt9.com" className="inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
-                  <span className="inline-flex size-5 items-center justify-center">
+                <a href="mailto:coachrajesh@vrt9.com" className={`${styles.footerLink} ${styles.contactRow}`}>
+                  <span className={styles.contactIcon}>
                     <IconMail />
                   </span>
                   <span>coachrajesh@vrt9.com</span>
@@ -116,111 +145,62 @@ export default function Footer() {
           </div>
 
           <div className="xl:pl-8">
-            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#43a047]">
-              Upcoming Cohorts
-            </h3>
-            <div className="flex flex-col gap-[10px]">
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
-                Silicon Valley, CA
+            <h3 className={`${styles.footerTitle} ${styles.footerTitleGreen}`}>Upcoming Cohorts</h3>
+            <div className={styles.linkStack}>
+              <a href="#join" className={styles.footerLink}>
+                silicon valley, ca
               </a>
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
-                Austin, TX
+              <a href="#join" className={styles.footerLink}>
+                austin, tx
               </a>
-              <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
-                Connecticut
+              <a href="#join" className={styles.footerLink}>
+                connecticut
               </a>
             </div>
 
-            <div className="mt-[34px]">
-              <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#e53935]">
-                Get Started
-              </h3>
-              <div className="flex flex-col gap-[10px]">
-                <a href="#join" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
-                  Reserve My Seat
+            <div className={styles.sectionBlock}>
+              <h3 className={`${styles.footerTitle} ${styles.footerTitleRed}`}>Get Started</h3>
+              <div className={styles.linkStack}>
+                <a href="#join" className={styles.footerLink}>
+                  reserveMySeat
                 </a>
-                <a href="#founder" className="text-[13.5px] leading-[1.45] text-[#111111] transition-colors hover:text-red">
-                  Book a Call
+                <a href="#founder" className={styles.footerLink}>
+                  bookACall
                 </a>
               </div>
             </div>
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#1e88e5]">
-              Social Media
-            </h3>
-            <div className="flex flex-col gap-3">
-              <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
-                href="https://www.linkedin.com/company/vrt-management-group-llc/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-linear-to-br from-[#5eb3ff] to-[#0a66c2] text-white shadow-[0_2px_8px_rgba(8,9,13,0.12)]">
-                  <IconLinkedIn />
-                </span>
-                <span>LinkedIn</span>
-              </a>
-              <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
-                href="https://x.com/VRT_management"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-linear-to-br from-[#d789f0] to-[#7b1fa2] text-white shadow-[0_2px_8px_rgba(8,9,13,0.12)]">
-                  <IconX />
-                </span>
-                <span>X</span>
-              </a>
-              <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
-                href="https://www.facebook.com/vrtmgmt/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-linear-to-br from-[#67d4ff] to-[#1877f2] text-white shadow-[0_2px_8px_rgba(8,9,13,0.12)]">
-                  <IconFacebook />
-                </span>
-                <span>Facebook</span>
-              </a>
-              <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
-                href="https://www.instagram.com/vrt_management/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-linear-to-br from-[#ffb347] via-[#e1306c] to-[#833ab4] text-white shadow-[0_2px_8px_rgba(8,9,13,0.12)]">
-                  <IconInstagram />
-                </span>
-                <span>Instagram</span>
-              </a>
-              <a
-                className="inline-flex items-center gap-3 text-[13.5px] leading-[1.4] text-[#111111]"
-                href="https://www.youtube.com/@vrt-management-group"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="inline-flex size-10 items-center justify-center rounded-full bg-linear-to-br from-[#ff7070] to-[#ff0000] text-white shadow-[0_2px_8px_rgba(8,9,13,0.12)]">
-                  <IconYoutube />
-                </span>
-                <span>Youtube</span>
-              </a>
+            <h3 className={`${styles.footerTitle} ${styles.footerTitleBlue}`}>Social Media</h3>
+            <div className={styles.socialList}>
+              {socialLinks.map(({ label, href, icon: Icon, iconClass }) => (
+                <a
+                  key={label}
+                  className={styles.socialLink}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className={`${styles.socialIcon} ${iconClass}`}>
+                    <Icon />
+                  </span>
+                  <span>{label}</span>
+                </a>
+              ))}
             </div>
           </div>
 
           <div>
-            <h3 className="mb-[18px] text-[13px] font-bold tracking-[0.02em] text-[#f9a825]">
-              Locations
-            </h3>
-            <div className="flex flex-col gap-7">
+            <h3 className={`${styles.footerTitle} ${styles.footerTitleGold}`}>Locations</h3>
+            <div className={styles.locationStack}>
               <div>
-                <div className="mb-2 text-[14px] font-bold text-foreground">Botsford, CT</div>
-                <p className="text-[13.5px] leading-[1.55] text-[#111111]">1 Botsford Hill Road</p>
-                <p className="text-[13.5px] leading-[1.55] text-[#111111]">PO BOX 150</p>
-                <p className="text-[13.5px] leading-[1.55] text-[#111111]">Botsford, CT 06404</p>
-                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
-                  <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
+                <div className={styles.footerSubheading}>botsford, ct</div>
+                <p className={styles.footerText}>1 botsford hill road</p>
+                <p className={styles.footerText}>po box 150</p>
+                <p className={styles.footerText}>botsford, ct 06404</p>
+                <a href="tel:+12033041918" className={`${styles.footerLink} ${styles.contactRow} mt-[10px]`}>
+                  <span className={styles.contactIcon}>
                     <IconPhone />
                   </span>
                   <span>+1-203-304-1918</span>
@@ -228,10 +208,10 @@ export default function Footer() {
               </div>
 
               <div>
-                <div className="mb-2 text-[14px] font-bold text-foreground">Hyderabad, India</div>
-                <p className="text-[13.5px] leading-[1.55] text-[#111111]">GCC (Global capability center)</p>
-                <a href="tel:+12033041918" className="mt-[10px] inline-flex items-center gap-[10px] text-[13.5px] leading-[1.45] text-[#111111]">
-                  <span className="inline-flex size-5 items-center justify-center text-[#1e88e5]">
+                <div className={styles.footerSubheading}>hyderabad, india</div>
+                <p className={styles.footerText}>gcc (global capability center)</p>
+                <a href="tel:+12033041918" className={`${styles.footerLink} ${styles.contactRow} mt-[10px]`}>
+                  <span className={styles.contactIcon}>
                     <IconPhone />
                   </span>
                   <span>+1-203-304-1918</span>
@@ -241,10 +221,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-[52px] border-t border-black/8 pt-[22px]">
-          <p className="text-[13px] leading-[1.6] text-[#111111]">
-            © 2026 VEGA®, Visionary Entrepreneurs Growth Accelerator. All rights reserved.
-          </p>
+        <div className={styles.copyright}>
+          © 2026 <VegaName />, visionary entrepreneurs growth accelerator. all rights reserved.
         </div>
       </Container>
     </footer>

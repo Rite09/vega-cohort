@@ -8,6 +8,7 @@ import Section from "@/components/layout/Section";
 import Grid from "@/components/ui/Grid";
 import SectionHeading from "@/components/ui/SectionHeading";
 import sectionVisuals from "@/data/sectionVisuals";
+import { formatVegaText } from "@/utils/format-vega-text";
 import { gsap } from "@/lib/gsap";
 import painPoints from "@/data/painPoints";
 
@@ -74,7 +75,7 @@ export default function PainPoints() {
       <FadeUp>
         <SectionHeading
           centered
-          label="Recognize the pattern"
+          label="recognizeThePattern"
           title="Do any of these sound familiar?"
           description="Growth often creates challenges that are easy to feel but harder to diagnose."
           descriptionClassName="max-w-[1080px]"
@@ -82,15 +83,15 @@ export default function PainPoints() {
       </FadeUp>
 
       <FadeUp delay={0.08}>
-        <div data-pain-stage className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-start">
+        <div data-pain-stage className="grid gap-8 lg:grid-cols-[minmax(0,0.88fr)_minmax(0,1.12fr)] lg:items-stretch">
           <div data-pain-visual className="relative lg:sticky lg:top-28">
             <div className="relative overflow-hidden rounded-[36px] border border-white/80 bg-[#0f172a] shadow-[0_30px_90px_rgba(15,23,42,0.18)]">
-              <div className="relative min-h-[520px]">
+              <div className="relative min-h-[640px]">
                 <Image
                   src={sectionVisuals.painPoints.src}
                   alt={sectionVisuals.painPoints.alt}
                   fill
-                  sizes="(max-width: 1024px) 100vw, 520px"
+                  sizes="(max-width: 1024px) 100vw, 640px"
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,14,24,0.1)_0%,rgba(9,14,24,0.34)_45%,rgba(9,14,24,0.92)_100%)]" />
@@ -103,7 +104,7 @@ export default function PainPoints() {
                     Growth becomes expensive when the operating model never evolves.
                   </h3>
                   <p className="mt-4 max-w-[430px] text-[15px] leading-[1.8] text-white/78">
-                    VEGA helps leadership teams move from instinct-led growth to repeatable execution, clearer roles,
+                    {formatVegaText("VEGA helps leadership teams")} move from instinct-led growth to repeatable execution, clearer roles,
                     and stronger operating discipline.
                   </p>
                   <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -121,7 +122,7 @@ export default function PainPoints() {
             </div>
           </div>
 
-          <Grid className="gap-5 lg:grid-cols-2">
+          <Grid className="grid-cols-1 gap-3.5 lg:min-h-[640px] lg:grid-rows-6">
             {painPoints.map((item, index) => {
               const Icon = icons[index % icons.length];
               const accent = accents[index % accents.length];
@@ -130,21 +131,21 @@ export default function PainPoints() {
                 <div
                   key={item}
                   data-pain-card
-                  className="group soft-panel relative overflow-hidden rounded-[30px] border border-[#e8edf5] bg-white px-6 py-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#d9e4f5] hover:shadow-[0_24px_54px_rgba(26,34,56,0.12)] md:px-7 md:py-7"
+                  className="group soft-panel relative flex overflow-hidden rounded-[22px] border border-[#e8edf5] bg-white px-5 py-5 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-0.5 hover:border-[#d9e4f5] hover:shadow-[0_20px_44px_rgba(26,34,56,0.1)]"
                 >
                   <div
                     aria-hidden="true"
-                    className={`absolute right-0 top-0 h-28 w-28 rounded-full bg-linear-to-br ${accent.glow} opacity-80 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
+                    className={`absolute right-0 top-0 h-20 w-20 rounded-full bg-linear-to-br ${accent.glow} opacity-80 blur-2xl transition-opacity duration-300 group-hover:opacity-100`}
                   />
-                  <div className="relative flex items-start gap-5">
-                    <span className={`flex size-12 shrink-0 items-center justify-center rounded-2xl bg-linear-to-br ${accent.icon} text-white shadow-[0_16px_30px_rgba(40,56,93,0.16)]`}>
-                      <Icon className="size-[18px]" strokeWidth={1.85} />
+                  <div className="relative flex items-center gap-4">
+                    <span className={`flex size-10 shrink-0 items-center justify-center rounded-xl bg-linear-to-br ${accent.icon} text-white shadow-[0_12px_24px_rgba(40,56,93,0.14)]`}>
+                      <Icon className="size-4" strokeWidth={1.85} />
                     </span>
-                    <div className="space-y-2">
-                      <div className="font-mono text-[11px] tracking-[0.08em] text-[#111827]">
+                    <div className="space-y-1">
+                      <div className="font-mono text-[10px] tracking-[0.08em] text-[#111827]">
                         Pattern 0{index + 1}
                       </div>
-                      <p className="max-w-[560px] text-[22px] leading-[1.55] tracking-[-0.025em] text-[#162033]">
+                      <p className="text-[18px] leading-[1.5] tracking-[-0.02em] text-[#162033] md:text-[20px]">
                         {item}
                       </p>
                     </div>

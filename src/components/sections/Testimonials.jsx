@@ -3,9 +3,10 @@
 import { useEffect, useRef, useState } from "react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { formatVegaText } from "@/utils/format-vega-text";
 import testimonials from "@/data/testimonials";
 
-function TestimonialCard({ item, onToggleMotion }) {
+function TestimonialCard({ item, onToggleMotion, onPause, onResume }) {
   const handleKeyDown = (event) => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
@@ -20,8 +21,12 @@ function TestimonialCard({ item, onToggleMotion }) {
       tabIndex={0}
       onClick={onToggleMotion}
       onKeyDown={handleKeyDown}
+      onMouseEnter={onPause}
+      onMouseLeave={onResume}
+      onFocus={onPause}
+      onBlur={onResume}
     >
-      <blockquote className="testimonial-card__quote">&ldquo;{item.quote}&rdquo;</blockquote>
+      <blockquote className="testimonial-card__quote">&ldquo;{formatVegaText(item.quote)}&rdquo;</blockquote>
       <div className="testimonial-card__author">
         <p className="testimonial-card__name">{item.name}</p>
         <p className="testimonial-card__role">{item.role}</p>
@@ -79,7 +84,7 @@ export function TestimonialsMarquee({ className = "" }) {
         if (marquee.scrollLeft >= halfway) {
           marquee.scrollLeft -= halfway;
         }
-      }, 18);
+      }, 56);
     };
 
     startAutoScroll();
@@ -95,13 +100,27 @@ export function TestimonialsMarquee({ className = "" }) {
     setIsPaused((current) => !current);
   };
 
+  const handlePause = () => {
+    setIsPaused(true);
+  };
+
+  const handleResume = () => {
+    setIsPaused(false);
+  };
+
   return (
     <div className={className}>
       <div className="testimonials-stage">
         <div ref={marqueeRef} className="testimonials-marquee">
           <div className={`testimonials-marquee__track${isPaused ? " testimonials-marquee__track--paused" : ""}`}>
             {slides.map((item, index) => (
-              <TestimonialCard key={`${item.id}-${index}`} item={item} onToggleMotion={handleToggleMotion} />
+              <TestimonialCard
+                key={`${item.id}-${index}`}
+                item={item}
+                onToggleMotion={handleToggleMotion}
+                onPause={handlePause}
+                onResume={handleResume}
+              />
             ))}
           </div>
         </div>
@@ -113,7 +132,7 @@ export function TestimonialsMarquee({ className = "" }) {
 export default function Testimonials({ embedded = false }) {
   const content = (
     <>
-      <Container>
+      <Container className="max-w-[min(1600px,calc(100%-32px))] px-4 lg:px-6">
         <SectionHeading
           centered
           className="mb-9"

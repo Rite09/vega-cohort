@@ -2,7 +2,8 @@
   position: fixed;
   inset: 0 0 auto;
   z-index: 120;
-  padding: 14px 0;
+  padding: 14px 20px;
+  overflow-x: clip;
   background: transparent;
   border-bottom: 1px solid transparent;
   animation: headerScrollState linear both;
@@ -17,7 +18,7 @@
 }
 
 .scrolled {
-  padding: 8px 0;
+  padding: 8px 20px;
   background: #ffffff;
   border-bottom-color: rgba(8, 9, 13, 0.06);
   backdrop-filter: none;
@@ -27,14 +28,14 @@
 
 @keyframes headerScrollState {
   0% {
-    padding: 14px 0;
+    padding: 14px 20px;
     background: rgba(255, 255, 255, 0);
     box-shadow: none;
     border-bottom-color: transparent;
   }
 
   100% {
-    padding: 8px 0;
+    padding: 8px 20px;
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 12px 34px rgba(26, 34, 56, 0.08);
     border-bottom-color: rgba(8, 9, 13, 0.06);
@@ -42,7 +43,8 @@
 }
 
 .inner {
-  width: min(1320px, calc(100vw - 40px));
+  width: 100%;
+  max-width: 1320px;
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -53,13 +55,17 @@
 
 @media (max-width: 820px) {
   .header {
-    padding: 14px 0;
+    padding: 14px 16px;
   }
 }
 
 @media (max-width: 640px) {
+  .header,
+  .scrolled {
+    padding-inline: 12px;
+  }
+
   .inner {
-    width: min(100vw - 24px, 1320px);
     gap: 16px;
   }
 }

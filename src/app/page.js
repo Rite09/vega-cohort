@@ -14,7 +14,7 @@ const JoinForm = dynamic(() => import("@/components/sections/JoinForm"));
 
 export default function HomePage() {
   return (
-    <main id="top" className="relative">
+    <main id="top" className="relative overflow-x-clip">
       <Hero />
       <PainPoints />
       <GrowthShift />

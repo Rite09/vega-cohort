@@ -7,33 +7,22 @@ import FadeUp from "@/components/animations/FadeUp";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import { upcomingCohorts } from "@/data/cohorts";
-import { cn } from "@/utils/cn";
 
 function CohortCard({ cohort }) {
   return (
-    <div className={cn("cohort-card-ref", cohort.featured && "cohort-card-ref--featured")}>
+    <div className="cohort-card-ref h-full">
       <div className="flex flex-1 flex-col p-[28px_26px_30px]">
         <span className="cohort-tag">{cohort.status}</span>
-        <h3 className="mb-2 text-[clamp(22px,2vw,28px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1117] [.cohort-card-ref--featured_&]:text-[clamp(24px,2.2vw,32px)] [.cohort-card-ref--featured_&]:text-white">
+        <h3 className="mb-2 text-[clamp(22px,2vw,28px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1117]">
           {cohort.city}
         </h3>
-        <p
-          className={cn(
-            "mb-[22px] text-[15px] leading-[1.45] text-[#111111]",
-            cohort.featured && "text-white/84"
-          )}
-        >
-          {cohort.sublabel}
-        </p>
+        <p className="mb-[22px] text-[15px] leading-[1.45] text-[#111111]">{cohort.sublabel}</p>
 
         <ul className="mb-auto flex flex-col gap-3">
           {cohort.dates.map((date) => (
             <li
               key={date}
-              className={cn(
-                "flex items-center gap-2.5 text-left text-[16px] font-semibold leading-[1.4] text-[#111827]",
-                cohort.featured && "text-white/98"
-              )}
+              className="flex items-center gap-2.5 text-left text-[16px] font-semibold leading-[1.4] text-[#111827]"
             >
               <span className="size-1.5 shrink-0 rounded-full bg-[#de2c26]" />
               {date}
@@ -46,7 +35,7 @@ function CohortCard({ cohort }) {
             href={cohort.href}
             className="mt-auto inline-flex items-center gap-2 pt-[18px] text-[15px] font-semibold text-[#de2c26] hover:underline"
           >
-            <span>{cohort.ctaLabel}</span>
+            <span className="button-label">{cohort.ctaLabel}</span>
             <ArrowRight className="size-3.5" />
           </a>
         ) : null}
@@ -57,12 +46,12 @@ function CohortCard({ cohort }) {
 
 export default function Cohorts() {
   return (
-    <section id="cohorts" className="overflow-hidden pb-[72px] pt-4">
+    <section id="cohorts" className="overflow-hidden pb-10 pt-0">
       <Container>
         <FadeUp>
           <SectionHeading
             centered
-            label="Calendar"
+            label="calendar"
             title="Upcoming VEGA Cohorts"
             description="Choose the cohort closest to you and begin your VEGA journey."
             titleClassName="text-[37px] font-medium tracking-[-0.02em]"
@@ -70,7 +59,7 @@ export default function Cohorts() {
         </FadeUp>
 
         <FadeUp delay={0.08}>
-          <div className="hidden lg:grid lg:grid-cols-3 lg:gap-5">
+          <div className="mx-auto hidden max-w-[1240px] gap-5 lg:grid lg:grid-cols-3">
             {upcomingCohorts.map((cohort) => (
               <CohortCard key={cohort.id} cohort={cohort} />
             ))}
@@ -87,15 +76,11 @@ export default function Cohorts() {
             }}
           >
             {upcomingCohorts.map((cohort) => (
-              <SwiperSlide key={cohort.id}>
+              <SwiperSlide key={cohort.id} className="!h-auto">
                 <CohortCard cohort={cohort} />
               </SwiperSlide>
             ))}
           </Swiper>
-        </FadeUp>
-
-        <FadeUp delay={0.14}>
-         
         </FadeUp>
       </Container>
     </section>

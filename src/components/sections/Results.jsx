@@ -13,7 +13,7 @@ export default function Results() {
       <FadeUp>
         <SectionHeading
           centered
-          label="Track record"
+          label="trackRecord"
           title="Real Businesses. Real Growth. Real Results."
         />
       </FadeUp>

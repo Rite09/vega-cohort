@@ -13,7 +13,7 @@ export default function Section({
     <Component
       id={id}
       className={cn(
-        "relative py-20 md:py-24 lg:py-[120px]",
+        "relative overflow-x-clip py-14 md:py-16 lg:py-20",
         !noBorder && "border-b border-line",
         className
       )}

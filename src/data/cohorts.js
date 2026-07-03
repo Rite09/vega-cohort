@@ -2,7 +2,7 @@ export const previousCohorts = [
   {
     id: "austin-may",
     city: "Austin, TX",
-    status: "Complete",
+    status: "Completed",
     dates: ["May 12-13, 2026", "June 2-3, 2026"],
     href: "/cohorts/austin-may",
     ctaLabel: "See how it was",

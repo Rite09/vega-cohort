@@ -13,7 +13,7 @@ export default function Heading({
   size = "h2",
 }) {
   return (
-    <Component className={cn("font-serif font-semibold text-foreground", sizes[size], className)}>
+    <Component className={cn("font-sans font-semibold text-foreground", sizes[size], className)}>
       {children}
     </Component>
   );
