@@ -12,11 +12,12 @@ export const navigationLinks = [
 ];
 
 export const growthShiftPoints = [
-  "Communication becomes more complex.",
-  "Decision-making becomes harder.",
-  "Growth creates more moving parts.",
-  "Execution becomes less consistent.",
-  "The founder becomes the bottleneck.",
+  "Your business has outgrown founder-led decision making.",
+  "Growth exposes gaps in role clarity and leadership structure.",
+  "Communication becomes more complex as organizations grow.",
+  "Execution breaks down without structure and accountability.",
+  "Your business is outgrowing the systems that built it.",
+  "More opportunities create less clarity.",
 ];
 
 export const vegaPillars = [
@@ -29,8 +30,9 @@ export const vegaPillars = [
 export const packageIncludes = [
   "7 Stages of Growth Assessment",
   "TriMetrix Assessment",
-  "Strategy Debrief",
+  "EQ Assessment",
+  "Strategy Debriefs",
   "Live Workshops",
   "Implementation Tools",
-  "Growth Roadmap",
+  "Growth Roadmaps & Plans",
 ];

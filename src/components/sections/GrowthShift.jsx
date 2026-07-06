@@ -24,8 +24,8 @@ export default function GrowthShift() {
       <FadeUp>
         <SectionHeading
           centered
-          label="whyGrowthStalls"
-          title="Growth changes the way your business needs to operate."
+          label="Understand the cause"
+          title="Why are these challenges happening?"
           description="Founder-led businesses rarely slow down because of ambition. They slow down when the business starts requiring more structure than the current operating system can support."
           descriptionClassName="max-w-[1080px]"
         />
@@ -52,12 +52,12 @@ export default function GrowthShift() {
               </p>
             </div>
 
-            <div className="relative mt-10 rounded-[24px] border border-white/14 bg-white/10 p-6 backdrop-blur-md lg:mt-12">
+            {/* <div className="relative mt-10 rounded-[24px] border border-white/14 bg-white/10 p-6 backdrop-blur-md lg:mt-12">
               <p className="text-[15px] leading-[1.75] text-white/84">
                 The shift is not about working harder. It is about building the structure, rhythm, and leadership
                 discipline required for the next stage of growth.
               </p>
-            </div>
+            </div> */}
           </div>
 
           <Grid className="grid-cols-1 gap-3.5 lg:min-h-[520px] lg:grid-rows-5">
@@ -82,7 +82,7 @@ export default function GrowthShift() {
                     </span>
                     <div className="space-y-1">
                       <div className="font-mono text-[10px] tracking-[0.08em] text-[#111827]">
-                        Shift 0{index + 1}
+                        Cause 0{index + 1}
                       </div>
                       <p className="text-[18px] leading-[1.5] tracking-[-0.02em] text-[#162033] md:text-[20px]">
                         {item}
