@@ -12,7 +12,6 @@ function CohortCard({ cohort }) {
   return (
     <div className="cohort-card-ref h-full">
       <div className="flex flex-1 flex-col p-[28px_26px_30px]">
-        <span className="cohort-tag">{cohort.status}</span>
         <h3 className="mb-2 text-[clamp(22px,2vw,28px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1117]">
           {cohort.city}
         </h3>
