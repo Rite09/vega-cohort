@@ -1,10 +1,26 @@
 import { forwardRef } from "react";
 import { cn } from "@/utils/cn";
 
+function renderLabel(label) {
+  if (typeof label !== "string" || !label.includes("*")) {
+    return label;
+  }
+
+  const cleanLabel = label.replace(/\*/g, "").trim();
+
+  return (
+    <>
+      {cleanLabel} <span className="text-red-bright">*</span>
+    </>
+  );
+}
+
 const Input = forwardRef(function Input({ error, label, labelClassName, name, className, ...props }, ref) {
   return (
     <label className="block">
-      <span className={cn("mb-2 block text-[12px] tracking-[0.01em] text-muted-2", labelClassName)}>{label}</span>
+      <span className={cn("mb-2 block text-[12px] tracking-[0.01em] text-muted-2", labelClassName)}>
+        {renderLabel(label)}
+      </span>
       <input
         ref={ref}
         name={name}

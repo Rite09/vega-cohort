@@ -12,12 +12,11 @@ export const previousCohorts = [
 export const upcomingCohorts = [
   {
     id: "silicon-valley",
-    status: "Featured",
-    statusVariant: "featured",
+    status: "Next Up",
     city: "Silicon Valley, CA",
     sublabel: "Cohort 01",
     dates: ["September 17, 18, 19, 2026"],
-    ctaLabel: "Apply for this batch",
+    ctaLabel: "Apply for Silicon Valley",
     href: "#join",
   },
   {

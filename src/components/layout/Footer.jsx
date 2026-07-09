@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/layout/Container";
 import VegaName from "@/components/ui/VegaName";
 import styles from "@/components/layout/Footer.module.css";
@@ -147,15 +148,15 @@ export default function Footer() {
           <div className="xl:pl-8">
             <h3 className={`${styles.footerTitle} ${styles.footerTitleGreen}`}>Upcoming Cohorts</h3>
             <div className={styles.linkStack}>
-              <a href="#join" className={styles.footerLink}>
+              <Link href="/?batch=Silicon%20Valley%2C%20CA#join" className={styles.footerLink}>
                 Silicon Valley, CA
-              </a>
-              <a href="#join" className={styles.footerLink}>
+              </Link>
+              <Link href="/?batch=Austin%2C%20TX#join" className={styles.footerLink}>
                 Austin, TX
-              </a>
-              <a href="#join" className={styles.footerLink}>
+              </Link>
+              <Link href="/?batch=Connecticut#join" className={styles.footerLink}>
                 Connecticut
-              </a>
+              </Link>
             </div>
 
             <div className={styles.sectionBlock}>
@@ -163,9 +164,6 @@ export default function Footer() {
               <div className={styles.linkStack}>
                 <a href="#join" className={styles.footerLink}>
                   Reserve My Seat
-                </a>
-                <a href="#founder" className={styles.footerLink}>
-                  Book a Call
                 </a>
               </div>
             </div>

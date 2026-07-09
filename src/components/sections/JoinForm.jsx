@@ -1,6 +1,4 @@
 "use client";
-
-import { zodResolver } from "@hookform/resolvers/zod";
 import {
   BarChart3,
   CheckCircle2,
@@ -10,8 +8,9 @@ import {
   Sparkles,
   Wrench,
 } from "lucide-react";
+import { useSearchParams } from "next/navigation";
 import { startTransition, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import FadeUp from "@/components/animations/FadeUp";
 import Container from "@/components/layout/Container";
 import Button from "@/components/ui/Button";
@@ -23,27 +22,30 @@ import VegaName from "@/components/ui/VegaName";
 import { formatSectionLabel } from "@/utils/format-section-label";
 import cohorts from "@/data/cohorts";
 import { packageIncludes } from "@/constants/site";
-import { joinFormDefaultValues, joinFormSchema } from "@/utils/join-form-schema";
+import { joinFormDefaultValues } from "@/utils/join-form-schema";
 
 const cohortOptions = [
   { value: "", label: "Select...", disabled: true },
   ...cohorts
     .filter((cohort) => cohort.href)
-    .flatMap((cohort) =>
-      cohort.dates.map((date) => ({
-        value: `${cohort.city} - ${date}`,
-        label: `${cohort.city} - ${date}`,
-      }))
-    ),
+    .map((cohort) => {
+      const combinedDates = cohort.dates.join(" / ");
+      const optionLabel = `${cohort.city} - ${combinedDates}`;
+
+      return {
+        value: optionLabel,
+        label: optionLabel,
+      };
+    }),
 ];
 
 const companySizeOptions = [
   { value: "", label: "Select...", disabled: true },
-  { value: "1-10", label: "1-10" },
-  { value: "11-50", label: "11-50" },
-  { value: "51-200", label: "51-200" },
-  { value: "201-500", label: "201-500" },
-  { value: "500+", label: "500+" },
+  { value: "1-10 employees", label: "1-10 employees" },
+  { value: "11-50 employees", label: "11-50 employees" },
+  { value: "51-200 employees", label: "51-200 employees" },
+  { value: "201-500 employees", label: "201-500 employees" },
+  { value: "500+ employees", label: "500+ employees" },
 ];
 
 const packageIcons = [BarChart3, ClipboardList, Sparkles, Presentation, Wrench, Map];
@@ -51,16 +53,23 @@ const SUCCESS_DISPLAY_MS = 4000;
 
 export default function JoinForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formError, setFormError] = useState("");
+  const searchParams = useSearchParams();
 
   const {
     formState: { errors, isSubmitting },
+    clearErrors,
     handleSubmit,
     register,
     reset,
+    setError,
+    setValue,
+    control,
   } = useForm({
     defaultValues: joinFormDefaultValues,
-    resolver: zodResolver(joinFormSchema),
   });
+  const selectedBatchValue = useWatch({ control, name: "batch" });
+  const selectedCompanySizeValue = useWatch({ control, name: "companySize" });
 
   useEffect(() => {
     if (!isSubmitted) return undefined;
@@ -72,16 +81,56 @@ export default function JoinForm() {
     return () => window.clearTimeout(timer);
   }, [isSubmitted]);
 
-  const onSubmit = handleSubmit(async () => {
-    await new Promise((resolve) => {
-      window.setTimeout(resolve, 500);
-    });
+  useEffect(() => {
+    const batchCity = searchParams.get("batch");
 
-    startTransition(() => {
-      setIsSubmitted(true);
-    });
+    if (!batchCity) return;
 
-    reset(joinFormDefaultValues);
+    const selectedBatchOption = cohortOptions.find((option) => option.label.startsWith(`${batchCity} - `));
+    if (selectedBatchOption?.value) {
+      setValue("batch", selectedBatchOption.value);
+    }
+  }, [searchParams, setValue]);
+
+  const onSubmit = handleSubmit(async (formData) => {
+    setFormError("");
+    clearErrors();
+
+    try {
+      const response = await fetch("/api/join", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        if (result?.fieldErrors && typeof result.fieldErrors === "object") {
+          Object.entries(result.fieldErrors).forEach(([fieldName, message]) => {
+            if (typeof message === "string") {
+              setError(fieldName, {
+                type: "server",
+                message,
+              });
+            }
+          });
+        }
+
+        setFormError(result?.message || "Unable to submit the form right now. Please try again.");
+        return;
+      }
+
+      startTransition(() => {
+        setIsSubmitted(true);
+      });
+
+      reset(joinFormDefaultValues);
+    } catch {
+      setFormError("Unable to submit the form right now. Please try again.");
+    }
   });
 
   return (
@@ -164,6 +213,7 @@ export default function JoinForm() {
                     className="join-form-input"
                     options={cohortOptions}
                     error={errors.batch?.message}
+                    value={selectedBatchValue}
                     {...register("batch")}
                   />
 
@@ -213,6 +263,7 @@ export default function JoinForm() {
                     className="join-form-input"
                     options={companySizeOptions}
                     error={errors.companySize?.message}
+                    value={selectedCompanySizeValue}
                     {...register("companySize")}
                   />
 
@@ -224,6 +275,7 @@ export default function JoinForm() {
                   >
                     {isSubmitting ? "Submitting..." : "Submit & Reserve My Seat"}
                   </Button>
+                  {formError ? <p className="text-sm text-red-bright">{formError}</p> : null}
                   </form>
                 </>
               )}

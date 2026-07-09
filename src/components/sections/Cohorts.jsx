@@ -2,6 +2,7 @@
 
 import "swiper/css";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import FadeUp from "@/components/animations/FadeUp";
 import Container from "@/components/layout/Container";
@@ -9,20 +10,23 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import { upcomingCohorts } from "@/data/cohorts";
 
 function CohortCard({ cohort }) {
+  const batchParam = encodeURIComponent(cohort.city);
+  const applyHref = `/?batch=${batchParam}#join`;
+
   return (
     <div className="cohort-card-ref h-full">
-      <div className="flex flex-1 flex-col p-[28px_26px_30px]">
+      <div className="flex flex-1 flex-col p-5 sm:p-6 lg:p-[28px_26px_30px]">
         <span className="cohort-tag">{cohort.status}</span>
-        <h3 className="mb-2 text-[clamp(22px,2vw,28px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1117]">
+        <h3 className="mb-2 text-[clamp(20px,6vw,28px)] font-bold leading-[1.2] tracking-[-0.02em] text-[#0d1117]">
           {cohort.city}
         </h3>
-        <p className="mb-[22px] text-[15px] leading-[1.45] text-[#111111]">{cohort.sublabel}</p>
+        <p className="mb-4 text-[14px] leading-[1.45] text-[#111111] sm:mb-[22px] sm:text-[15px]">{cohort.sublabel}</p>
 
-        <ul className="mb-auto flex flex-col gap-3">
+        <ul className="mb-auto flex flex-col gap-2.5 sm:gap-3">
           {cohort.dates.map((date) => (
             <li
               key={date}
-              className="flex items-center gap-2.5 text-left text-[16px] font-semibold leading-[1.4] text-[#111827]"
+              className="flex items-center gap-2.5 text-left text-[15px] font-semibold leading-[1.35] text-[#111827] sm:text-[16px] sm:leading-[1.4]"
             >
               <span className="size-1.5 shrink-0 rounded-full bg-[#de2c26]" />
               {date}
@@ -31,13 +35,13 @@ function CohortCard({ cohort }) {
         </ul>
 
         {cohort.href ? (
-          <a
-            href={cohort.href}
-            className="mt-auto inline-flex items-center gap-2 pt-[18px] text-[15px] font-semibold text-[#de2c26] hover:underline"
+          <Link
+            href={applyHref}
+            className="mt-auto inline-flex items-center gap-2 pt-4 text-[14px] font-semibold text-[#de2c26] hover:underline sm:pt-[18px] sm:text-[15px]"
           >
             <span className="button-label">{cohort.ctaLabel}</span>
             <ArrowRight className="size-3.5" />
-          </a>
+          </Link>
         ) : null}
       </div>
     </div>
@@ -68,15 +72,16 @@ export default function Cohorts() {
 
         <FadeUp delay={0.08} className="lg:hidden">
           <Swiper
-            spaceBetween={16}
-            slidesPerView={1.08}
+            spaceBetween={14}
+            slidesPerView={1.04}
             breakpoints={{
-              640: { slidesPerView: 1.6 },
-              860: { slidesPerView: 2.2 },
+              520: { slidesPerView: 1.2, spaceBetween: 16 },
+              700: { slidesPerView: 1.5, spaceBetween: 16 },
+              860: { slidesPerView: 1.85, spaceBetween: 18 },
             }}
           >
             {upcomingCohorts.map((cohort) => (
-              <SwiperSlide key={cohort.id} className="!h-auto">
+              <SwiperSlide key={cohort.id} className="!h-auto pb-1">
                 <CohortCard cohort={cohort} />
               </SwiperSlide>
             ))}
