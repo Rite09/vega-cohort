@@ -129,8 +129,8 @@ const Select = forwardRef(function Select(
                       "w-full rounded-[8px] px-3 py-2.5 text-left text-[14px] leading-tight transition-colors duration-150",
                       option.disabled
                         ? "cursor-not-allowed text-[#9aa3b2]"
-                        : "cursor-pointer text-[#1f2937] hover:bg-[#f2f5fb]",
-                      isSelected && !option.disabled ? "bg-[#e9efff] font-semibold text-[#1b4fd6]" : ""
+                        : "cursor-pointer text-[#111827] hover:bg-[#fde8e8]",
+                      isSelected && !option.disabled ? "bg-[#fde8e8] font-semibold text-[#111827]" : ""
                     )}
                   >
                     {option.label}

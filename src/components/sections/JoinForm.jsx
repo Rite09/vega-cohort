@@ -29,7 +29,7 @@ const cohortOptions = [
   ...cohorts
     .filter((cohort) => cohort.href)
     .map((cohort) => {
-      const combinedDates = cohort.dates.join(" / ");
+      const combinedDates = cohort.dates.join(" & ");
       const optionLabel = `${cohort.city} - ${combinedDates}`;
 
       return {
