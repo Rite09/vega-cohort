@@ -96,28 +96,39 @@ export default function PainPoints() {
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(9,14,24,0.1)_0%,rgba(9,14,24,0.34)_45%,rgba(9,14,24,0.92)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 p-7 md:p-8">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/12 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-white/82 backdrop-blur">
-                    <TrendingUp className="size-3.5" />
-                    Growth pressure
-                  </div>
-                  <h3 className="mt-5 max-w-[420px] text-[clamp(30px,3vw,42px)] font-semibold leading-[1.08] tracking-[-0.04em] text-white">
-                    Growth becomes expensive when the operating model never evolves.
-                  </h3>
-                  <p className="mt-4 max-w-[430px] text-[15px] leading-[1.8] text-white/78">
-                    {formatVegaText("VEGA helps leadership teams")} move from instinct-led growth to repeatable execution, clearer roles,
-                    and stronger operating discipline.
-                  </p>
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                    <div className="rounded-[20px] border border-white/14 bg-white/10 px-4 py-4 backdrop-blur">
-                      <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">Focus area</div>
-                      <div className="mt-2 text-[18px] font-semibold text-white">Leadership alignment</div>
-                    </div>
-                    <div className="rounded-[20px] border border-white/14 bg-white/10 px-4 py-4 backdrop-blur">
-                      <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">Outcome</div>
-                      <div className="mt-2 text-[18px] font-semibold text-white">Cleaner execution rhythm</div>
-                    </div>
-                  </div>
-                </div>
+  <div className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/12 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-white/82 backdrop-blur">
+    <TrendingUp className="size-3.5" />
+    Growth pressure
+  </div>
+
+  <h3 className="mt-5 max-w-[420px] text-[clamp(30px,3vw,42px)] font-semibold leading-[1.08] tracking-[-0.04em] text-white">
+    The warning signs are starting to appear.
+  </h3>
+
+  <p className="mt-4 max-w-[430px] text-[15px] leading-[1.8] text-white/78">
+    These aren't isolated problems. They're often the first signs that your business is entering a new stage of growth.
+  </p>
+
+  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+    <div className="rounded-[20px] border border-white/14 bg-white/10 px-4 py-4 backdrop-blur">
+      <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">
+        Focus area
+      </div>
+      <div className="mt-2 text-[18px] font-semibold text-white">
+        Leadership alignment
+      </div>
+    </div>
+
+    <div className="rounded-[20px] border border-white/14 bg-white/10 px-4 py-4 backdrop-blur">
+      <div className="font-mono text-[11px] tracking-[0.08em] text-white/72">
+        Outcome
+      </div>
+      <div className="mt-2 text-[18px] font-semibold text-white">
+        Cleaner execution rhythm
+      </div>
+    </div>
+  </div>
+</div>
               </div>
             </div>
           </div>

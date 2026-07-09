@@ -24,39 +24,41 @@ export default function GrowthShift() {
       <FadeUp>
         <SectionHeading
           centered
-          label="whyGrowthStalls"
-          title="Growth changes the way your business needs to operate."
+          label="Understand the cause"
+          title="Why are these challenges happening?"
           description="Founder-led businesses rarely slow down because of ambition. They slow down when the business starts requiring more structure than the current operating system can support."
           descriptionClassName="max-w-[1080px]"
         />
       </FadeUp>
 
       <FadeUp delay={0.08}>
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-stretch">
-          <div className="relative overflow-hidden rounded-[32px] border border-[#dbe4f4] bg-[#0f172a] p-8 shadow-[0_30px_90px_rgba(15,23,42,0.16)] md:p-10 lg:flex lg:min-h-[520px] lg:flex-col lg:justify-between">
-            <div
-              aria-hidden="true"
-              className="absolute right-0 top-0 h-44 w-44 rounded-full bg-linear-to-br from-[#27c6d9]/30 via-[#5d8dff]/20 to-transparent blur-3xl"
-            />
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/12 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-white/82 backdrop-blur">
-                <TrendingUp className="size-3.5" />
-                Internal strain
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-start">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <div className="relative overflow-hidden rounded-[32px] border border-[#dbe4f4] bg-[#0f172a] p-8 shadow-[0_30px_90px_rgba(15,23,42,0.16)] md:p-10">
+              <div
+                aria-hidden="true"
+                className="absolute right-0 top-0 h-44 w-44 rounded-full bg-linear-to-br from-[#27c6d9]/30 via-[#5d8dff]/20 to-transparent blur-3xl"
+              />
+              <div className="relative">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/18 bg-white/12 px-4 py-2 font-mono text-[11px] tracking-[0.08em] text-white/82 backdrop-blur">
+                  <TrendingUp className="size-3.5" />
+                  Internal strain
+                </div>
+                <h3 className="mt-6 max-w-[460px] text-[clamp(28px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.035em] text-white">
+                  Your business is outgrowing the systems that built it.
+                </h3>
+                <p className="mt-5 max-w-[480px] text-[16px] leading-[1.8] text-white/78">
+                  Most founder-led businesses don&apos;t stall because the owner stopped working hard. They stall when
+                  communication, decision-making, and execution can no longer keep pace with the complexity growth creates.
+                </p>
               </div>
-              <h3 className="mt-6 max-w-[460px] text-[clamp(28px,3vw,40px)] font-semibold leading-[1.12] tracking-[-0.035em] text-white">
-                Your business is outgrowing the systems that built it.
-              </h3>
-              <p className="mt-5 max-w-[480px] text-[16px] leading-[1.8] text-white/78">
-                Most founder-led businesses don&apos;t stall because the owner stopped working hard. They stall when
-                communication, decision-making, and execution can no longer keep pace with the complexity growth creates.
-              </p>
-            </div>
 
-            <div className="relative mt-10 rounded-[24px] border border-white/14 bg-white/10 p-6 backdrop-blur-md lg:mt-12">
-              <p className="text-[15px] leading-[1.75] text-white/84">
-                The shift is not about working harder. It is about building the structure, rhythm, and leadership
-                discipline required for the next stage of growth.
-              </p>
+              {/* <div className="relative mt-10 rounded-[24px] border border-white/14 bg-white/10 p-6 backdrop-blur-md lg:mt-12">
+                <p className="text-[15px] leading-[1.75] text-white/84">
+                  The shift is not about working harder. It is about building the structure, rhythm, and leadership
+                  discipline required for the next stage of growth.
+                </p>
+              </div> */}
             </div>
           </div>
 
@@ -82,7 +84,7 @@ export default function GrowthShift() {
                     </span>
                     <div className="space-y-1">
                       <div className="font-mono text-[10px] tracking-[0.08em] text-[#111827]">
-                        Shift 0{index + 1}
+                        Cause 0{index + 1}
                       </div>
                       <p className="text-[18px] leading-[1.5] tracking-[-0.02em] text-[#162033] md:text-[20px]">
                         {item}

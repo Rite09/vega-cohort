@@ -4,6 +4,7 @@ import GrowthShift from "@/components/sections/GrowthShift";
 import Hero from "@/components/sections/Hero";
 import PainPoints from "@/components/sections/PainPoints";
 import Process from "@/components/sections/Process";
+import VegaCohortProcess from "@/components/sections/VegaCohortProcess";
 import Results from "@/components/sections/Results";
 import WalkAway from "@/components/sections/WalkAway";
 import WhatIsVega from "@/components/sections/WhatIsVega";
@@ -19,7 +20,8 @@ export default function HomePage() {
       <PainPoints />
       <GrowthShift />
       <WhatIsVega />
-      <Process />
+      {/* <Process /> */}
+      <VegaCohortProcess />
       <WalkAway />
       <Founder />
       <Results />
