@@ -9,7 +9,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { startTransition, useEffect, useState } from "react";
+import { Suspense, startTransition, useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import FadeUp from "@/components/animations/FadeUp";
 import Container from "@/components/layout/Container";
@@ -51,10 +51,26 @@ const companySizeOptions = [
 const packageIcons = [BarChart3, ClipboardList, Sparkles, Presentation, Wrench, Map];
 const SUCCESS_DISPLAY_MS = 4000;
 
+function BatchPrefill({ setValue }) {
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const batchCity = searchParams.get("batch");
+
+    if (!batchCity) return;
+
+    const selectedBatchOption = cohortOptions.find((option) => option.label.startsWith(`${batchCity} - `));
+    if (selectedBatchOption?.value) {
+      setValue("batch", selectedBatchOption.value);
+    }
+  }, [searchParams, setValue]);
+
+  return null;
+}
+
 export default function JoinForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formError, setFormError] = useState("");
-  const searchParams = useSearchParams();
 
   const {
     formState: { errors, isSubmitting },
@@ -80,17 +96,6 @@ export default function JoinForm() {
 
     return () => window.clearTimeout(timer);
   }, [isSubmitted]);
-
-  useEffect(() => {
-    const batchCity = searchParams.get("batch");
-
-    if (!batchCity) return;
-
-    const selectedBatchOption = cohortOptions.find((option) => option.label.startsWith(`${batchCity} - `));
-    if (selectedBatchOption?.value) {
-      setValue("batch", selectedBatchOption.value);
-    }
-  }, [searchParams, setValue]);
 
   const onSubmit = handleSubmit(async (formData) => {
     setFormError("");
@@ -198,6 +203,9 @@ export default function JoinForm() {
                   </div>
 
                   <form className="join-form-card__body join-form-fields" onSubmit={onSubmit}>
+                  <Suspense fallback={null}>
+                    <BatchPrefill setValue={setValue} />
+                  </Suspense>
                   <Input
                     label="Full name *"
                     labelClassName="join-form-label"
